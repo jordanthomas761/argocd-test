@@ -12,3 +12,7 @@ spec:
   destination:
       name: in-cluster
       namespace: actions-runner-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
