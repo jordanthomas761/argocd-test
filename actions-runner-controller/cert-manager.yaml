@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/actions-runner-controller/actions-runner-controller
+    repoURL: https://charts.jetstack.io
     path: charts/actions-runner-controller
-    targetRevision: v0.22.0
+    targetRevision: v1.19.0
   destination:
       name: in-cluster
       namespace: cert-manager
