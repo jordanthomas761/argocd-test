@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://charts.jetstack.io
     path: jetstack/cert-manager
-    targetRevision: v1.19.0
+    targetRevision: v1.10.0
   destination:
       name: in-cluster
       namespace: cert-manager
