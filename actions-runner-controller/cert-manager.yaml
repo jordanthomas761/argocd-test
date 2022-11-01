@@ -6,8 +6,12 @@ metadata:
 spec:
   project: default
   source:
+    chart: cert-manager
+    helm:
+      parameters:
+        - name: installCRDs
+          value: "true"
     repoURL: https://charts.jetstack.io
-    path: jetstack/cert-manager
     targetRevision: v1.10.0
   destination:
       name: in-cluster
@@ -16,5 +20,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-    - Replace=true
