@@ -2,11 +2,15 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: actions-runner-system 
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
   name: actions-runner-workers
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 ---
 apiVersion: v1
 kind: Namespace
