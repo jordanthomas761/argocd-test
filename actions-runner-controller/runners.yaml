@@ -19,20 +19,5 @@ spec:
   template:
     spec:
       repository: jordanthomas761/hello-world-javascript-action
----
-apiVersion: actions.summerwind.dev/v1alpha1
-kind: HorizontalRunnerAutoscaler
-metadata:
-  name: runner-deployment-autoscaler
-  namespace: actions-runner-workers
-spec:
-  scaleTargetRef:
-    name: runner-deployment
-  minReplicas: 2
-  maxReplicas: 5
-  metrics:
-  - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
-    repositoryNames:
-    - hello-world-javascript-action
-    - python-test-app
+
 
