@@ -1,25 +1,25 @@
-# apiVersion: actions.summerwind.dev/v1alpha1
-# kind: RunnerDeployment
-# metadata:
-#   name: python-runner-deployment
-#   namespace: actions-runner-workers
-# spec:
-#   replicas: 1
-#   template:
-#     spec:
-#       repository: jordanthomas761/python-test-app
-# ---
-# apiVersion: actions.summerwind.dev/v1alpha1
-# kind: RunnerDeployment
-# metadata:
-#   name: hello-world-runner-deployment
-#   namespace: actions-runner-workers
-# spec:
-#   replicas: 1
-#   template:
-#     spec:
-#       repository: jordanthomas761/hello-world-javascript-action
-# ---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: python-runner-deployment
+  namespace: actions-runner-workers
+spec:
+  replicas: 1
+  template:
+    spec:
+      repository: jordanthomas761/python-test-app
+---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: hello-world-runner-deployment
+  namespace: actions-runner-workers
+spec:
+  replicas: 1
+  template:
+    spec:
+      repository: jordanthomas761/hello-world-javascript-action
+---
 apiVersion: actions.summerwind.dev/v1alpha1
 kind: HorizontalRunnerAutoscaler
 metadata:
