@@ -9,9 +9,13 @@ spec:
     repoURL: https://github.com/actions-runner-controller/actions-runner-controller
     path: charts/actions-runner-controller
     targetRevision: v0.22.0
+    helm:
+      parameters:
+        - name: syncPeriod
+          value: 1m
   destination:
       name: in-cluster
-      namespace: cert-manager
+      namespace: actions-runner-system
   syncPolicy:
     automated:
       prune: true
