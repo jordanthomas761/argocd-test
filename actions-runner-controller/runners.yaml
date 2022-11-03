@@ -1,7 +1,7 @@
 apiVersion: actions.summerwind.dev/v1alpha1
 kind: RunnerDeployment
 metadata:
-  name: python-runner-deployment
+  generatename: python-runner-deployment
   namespace: actions-runner-workers
   argocd.argoproj.io/sync-wave: "1"
   argocd.argoproj.io/hook: Sync
@@ -14,7 +14,7 @@ spec:
 apiVersion: actions.summerwind.dev/v1alpha1
 kind: RunnerDeployment
 metadata:
-  name: hello-world-runner-deployment
+  generatename: hello-world-runner-deployment
   namespace: actions-runner-workers
   argocd.argoproj.io/sync-wave: "1"
   argocd.argoproj.io/hook: Sync
@@ -27,7 +27,7 @@ spec:
 apiVersion: actions.summerwind.dev/v1alpha1
 kind: HorizontalRunnerAutoscaler
 metadata:
-  name: runner-deployment-autoscaler
+  generatename: runner-deployment-autoscaler
   namespace: actions-runner-workers
   argocd.argoproj.io/sync-wave: "1"
   argocd.argoproj.io/hook: Sync
