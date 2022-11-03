@@ -10,6 +10,10 @@ spec:
     chart: linkerd-control-plane
     repoURL: https://helm.linkerd.io/stable
     targetRevision: 1.9.4
+    helm:
+      parameters:
+        - name: identity.issuer.scheme
+          value: kubernetes.io/tls
   destination:
       name: in-cluster
       namespace: linkerd
