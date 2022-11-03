@@ -6,6 +6,10 @@ metadata:
   argocd.argoproj.io/sync-wave: "2"
 spec:
   secretName: linkerd-identity-issuer
+  secretTemplate:
+    data:
+      tls.crt
+      tls.key
   duration: 48h
   renewBefore: 25h
   issuerRef:
