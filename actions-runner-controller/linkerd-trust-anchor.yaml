@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
+  name: linkerd-identity-issuer
   namespace: linkerd
   argocd.argoproj.io/sync-wave: "2"
 type: Opaque
