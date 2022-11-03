@@ -3,7 +3,6 @@ kind: Application
 metadata:
   name: actions-runner-controller
   namespace: argocd
-  argocd.argoproj.io/hook: Sync
 spec:
   project: default
   source:

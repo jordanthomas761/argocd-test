@@ -3,8 +3,7 @@ kind: RunnerDeployment
 metadata:
   name: python-runner-deployment
   namespace: actions-runner-workers
-  argocd.argoproj.io/sync-wave: "1"
-  argocd.argoproj.io/hook: Sync
+  argocd.argoproj.io/sync-wave: 1
 spec:
   replicas: 1
   template:
@@ -16,8 +15,7 @@ kind: RunnerDeployment
 metadata:
   name: hello-world-runner-deployment
   namespace: actions-runner-workers
-  argocd.argoproj.io/sync-wave: "1"
-  argocd.argoproj.io/hook: Sync
+  argocd.argoproj.io/sync-wave: 1
 spec:
   replicas: 1
   template:
@@ -29,8 +27,7 @@ kind: HorizontalRunnerAutoscaler
 metadata:
   name: runner-deployment-autoscaler
   namespace: actions-runner-workers
-  argocd.argoproj.io/sync-wave: "1"
-  argocd.argoproj.io/hook: Sync
+  argocd.argoproj.io/sync-wave: 1
 spec:
   scaleTargetRef:
     name: runner-deployment
