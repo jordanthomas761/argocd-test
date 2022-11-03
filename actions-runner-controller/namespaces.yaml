@@ -1,11 +1,9 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: actions-runner-system 
-  argocd.argoproj.io/hook: PreSync
+  name: actions-runner-system
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
   name: actions-runner-workers
-  argocd.argoproj.io/hook: PreSync
