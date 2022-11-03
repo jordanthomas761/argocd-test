@@ -8,12 +8,7 @@ spec:
   project: default
   source:
     chart: linkerd/linkerd-crds
-    helm:
-      parameters:
-        - name: installCRDs
-          value: "true"
     repoURL: https://helm.linkerd.io/stable
-    targetRevision: latest
   destination:
       name: in-cluster
       namespace: linkerd
