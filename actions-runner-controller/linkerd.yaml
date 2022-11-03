@@ -9,6 +9,7 @@ spec:
   source:
     chart: linkerd/linkerd-crds
     repoURL: https://helm.linkerd.io/stable
+    targetRevision: linkerd-crds
   destination:
       name: in-cluster
       namespace: linkerd
