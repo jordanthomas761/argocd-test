@@ -1,9 +1,11 @@
 apiVersion: v1
 kind: Namespace
 metadata:
+  argocd.argoproj.io/hook: Sync
   name: actions-runner-system
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
+  argocd.argoproj.io/hook: Sync
   name: actions-runner-workers
