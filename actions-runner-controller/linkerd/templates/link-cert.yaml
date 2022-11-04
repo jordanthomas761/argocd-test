@@ -3,7 +3,6 @@ kind: Certificate
 metadata:
   name: linkerd-identity-issuer
   namespace: linkerd
-  argocd.argoproj.io/sync-wave: "2"
 spec:
   secretName: linkerd-identity-issuer
   secretTemplate:

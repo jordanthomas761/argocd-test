@@ -3,7 +3,6 @@ kind: Issuer
 metadata:
   name: linkerd-trust-anchor
   namespace: linkerd
-  argocd.argoproj.io/sync-wave: "3"
 spec:
   ca:
     secretName: linkerd-trust-anchor

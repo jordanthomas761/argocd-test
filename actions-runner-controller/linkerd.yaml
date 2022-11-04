@@ -1,0 +1,10 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: linkerd-control-plane
+  namespace: argocd
+spec:
+  source:
+    repoURL: https://github.com/jordanthomas761/argocd-test
+    path: actions-runner-controller/linkerd/
+    targetRevision: HEAD
