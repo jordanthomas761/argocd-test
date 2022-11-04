@@ -3,7 +3,6 @@ kind: Application
 metadata:
   name: linkerd-crds
   namespace: argocd
-  argocd.argoproj.io/hook: PreSync
 spec:
   project: default
   source:
