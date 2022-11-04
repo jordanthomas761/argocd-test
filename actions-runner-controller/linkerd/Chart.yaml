@@ -1,6 +1,6 @@
 apiVersion: v2
 name: linkerd
-description: Applications
+description: Application
 
 # A chart can be either an 'application' or a 'library' chart.
 #
