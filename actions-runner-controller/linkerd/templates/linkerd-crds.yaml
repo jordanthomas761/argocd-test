@@ -3,6 +3,7 @@ kind: Application
 metadata:
   name: linkerd-crds
   namespace: argocd
+  argocd.argoproj.io/sync-wave: "-1"
 spec:
   project: default
   source:
@@ -12,3 +13,7 @@ spec:
   destination:
       name: in-cluster
       namespace: linkerd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
