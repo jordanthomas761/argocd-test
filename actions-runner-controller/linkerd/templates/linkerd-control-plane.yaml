@@ -10,8 +10,8 @@ spec:
     repoURL: https://helm.linkerd.io/stable
     targetRevision: 1.9.4
     helm:
-      valueFiles:
-        - values-ha.yaml
+      # valueFiles:
+      #   - values-ha.yaml
       parameters:
         - name: identity.issuer.scheme
           value: kubernetes.io/tls
