@@ -3,6 +3,7 @@ kind: Application
 metadata:
   name: linkerd
   namespace: argocd
+  argocd.argoproj.io/hook: Sync
   argocd.argoproj.io/sync-wave: -1
 spec:
   project: default
