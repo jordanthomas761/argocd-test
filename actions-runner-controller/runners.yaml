@@ -4,7 +4,7 @@ metadata:
   name: python-runner-deployment
   namespace: actions-runner-workers
   annotations:
-    argocd.argoproj.io/sync-wave: 1
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   replicas: 1
   template:
@@ -17,7 +17,7 @@ metadata:
   name: hello-world-runner-deployment
   namespace: actions-runner-workers
   annotations:
-    argocd.argoproj.io/sync-wave: 1
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   replicas: 1
   template:
@@ -30,7 +30,7 @@ metadata:
   name: runner-deployment-autoscaler
   namespace: actions-runner-workers
   annotations:
-    argocd.argoproj.io/sync-wave: 1
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   scaleTargetRef:
     name: runner-deployment
