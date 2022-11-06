@@ -15,6 +15,10 @@ spec:
       # valueFiles:
       #   - values-ha.yaml
       parameters:
+        - name: identityTrustAnchorsPEM
+          value: |
+            -----BEGIN CERTIFICATE-----
+            -----END CERTIFICATE----- 
         - name: identity.issuer.scheme
           value: kubernetes.io/tls
   destination:
