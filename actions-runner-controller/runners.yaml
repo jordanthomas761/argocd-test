@@ -8,12 +8,12 @@ metadata:
 spec:
   replicas: 1
   dockerdContainerResources:
-        limits:
-          cpu: "2.0"
-          memory: "2Gi"
-        requests:
-          cpu: "0.5"
-          memory: "1Gi"
+    limits:
+      cpu: "2.0"
+      memory: "2Gi"
+    requests:
+      cpu: "0.5"
+      memory: "1Gi"
   template:
     spec:
       repository: jordanthomas761/python-test-app
@@ -28,12 +28,12 @@ metadata:
 spec:
   replicas: 1
   dockerdContainerResources:
-        limits:
-          cpu: "2.0"
-          memory: "2Gi"
-        requests:
-          cpu: "0.5"
-          memory: "1Gi"
+    limits:
+      cpu: "2.0"
+      memory: "2Gi"
+    requests:
+      cpu: "0.5"
+      memory: "1Gi"
   template:
     spec:
       repository: jordanthomas761/hello-world-javascript-action
