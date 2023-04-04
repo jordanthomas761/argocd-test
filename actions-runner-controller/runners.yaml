@@ -5,6 +5,8 @@ metadata:
   namespace: actions-runner-workers
   annotations:
     argocd.argoproj.io/sync-wave: "1"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   replicas: 1
   template:
@@ -26,6 +28,8 @@ metadata:
   namespace: actions-runner-workers
   annotations:
     argocd.argoproj.io/sync-wave: "1"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   replicas: 1
   template:
@@ -47,6 +51,8 @@ metadata:
   namespace: actions-runner-workers
   annotations:
     argocd.argoproj.io/sync-wave: "1"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   scaleTargetRef:
     name: runner-deployment
