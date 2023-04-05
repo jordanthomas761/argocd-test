@@ -31,7 +31,7 @@ spec:
         - name: identity.issuer.scheme
           value: kubernetes.io/tls
         - name: proxyInit.runAsRoot
-          value: true
+          value: "true"
   destination:
       name: in-cluster
       namespace: linkerd
