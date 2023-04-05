@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/jordanthomas761/argocd-test
     path: actions-runner-controller/linkerd/
-    targetRevision: HEAD
+    targetRevision: new-secret
   destination:
       name: in-cluster
       namespace: argocd
