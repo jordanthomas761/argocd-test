@@ -10,7 +10,7 @@ spec:
   source:
     chart: linkerd-control-plane
     repoURL: https://helm.linkerd.io/stable
-    targetRevision: 1.9.0
+    targetRevision: 1.9.4
     helm:
       # valueFiles:
       #   - values-ha.yaml
