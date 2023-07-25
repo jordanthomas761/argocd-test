@@ -16,7 +16,7 @@ spec:
         - name: syncPeriod
           value: 1m
         - name: runner.statusUpdateHook.enabled
-          value: true
+          value: "true"
   destination:
       name: in-cluster
       namespace: actions-runner-system
