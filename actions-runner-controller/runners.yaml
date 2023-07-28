@@ -5,8 +5,8 @@ metadata:
   namespace: actions-runner-workers
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
 spec:
   template:
     spec:
@@ -29,8 +29,8 @@ metadata:
   namespace: actions-runner-workers
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
 spec:
   template:
     spec:
@@ -45,8 +45,6 @@ metadata:
   namespace: actions-runner-workers
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   scaleTargetRef:
     kind: RunnerDeployment
@@ -67,8 +65,6 @@ metadata:
   namespace: actions-runner-workers
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   scaleTargetRef:
     kind: RunnerDeployment
