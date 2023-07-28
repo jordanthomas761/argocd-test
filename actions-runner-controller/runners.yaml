@@ -45,6 +45,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
+  scaleDownDelaySecondsAfterScaleOut: 300
   scaleTargetRef:
     kind: RunnerDeployment
     name: python-runner-deployment
@@ -65,6 +66,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
+  scaleDownDelaySecondsAfterScaleOut: 60
   scaleTargetRef:
     kind: RunnerDeployment
     name: hello-world-runner-deployment
