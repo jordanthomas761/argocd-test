@@ -10,6 +10,7 @@ metadata:
 spec:
   template:
     spec:
+      replicas: 1
       repository: jordanthomas761/python-test-app     
       dockerdWithinRunnerContainer: false
       ephemeral: true
