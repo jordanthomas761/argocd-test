@@ -17,6 +17,8 @@ spec:
           value: 1m
         - name: runner.statusUpdateHook.enabled
           value: "true"
+        - name: "actionsMetricsServer.enabled"
+          value: "true"
   destination:
       name: in-cluster
       namespace: actions-runner-system
