@@ -8,7 +8,6 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  replicas: 1
   template:
     spec:
       repository: jordanthomas761/python-test-app     
@@ -32,7 +31,6 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  replicas: 1
   template:
     spec:
       repository: jordanthomas761/hello-world-javascript-action
