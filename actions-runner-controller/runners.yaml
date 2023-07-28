@@ -41,7 +41,29 @@ spec:
 apiVersion: actions.summerwind.dev/v1alpha1
 kind: HorizontalRunnerAutoscaler
 metadata:
-  name: runner-deployment-autoscaler
+  name: python-runner-autoscaler
+  namespace: actions-runner-workers
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  scaleTargetRef:
+    kind: RunnerDeployment
+    name: python-runner-deployment
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: PercentageRunnersBusy
+    scaleUpThreshold: '0.75'
+    scaleDownThreshold: '0.25'
+    scaleUpFactor: '2'
+    scaleDownFactor: '0.5'
+---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: HorizontalRunnerAutoscaler
+metadata:
+  name: hello-world-autoscaler
   namespace: actions-runner-workers
   annotations:
     argocd.argoproj.io/sync-wave: "1"
@@ -51,16 +73,9 @@ spec:
   scaleTargetRef:
     kind: RunnerDeployment
     name: hello-world-runner-deployment
-  minReplicas: 2
+  minReplicas: 1
   maxReplicas: 5
   metrics:
-  - type: PercentageRunnersBusy
-    scaleUpThreshold: '0.75'
-    scaleDownThreshold: '0.25'
-    scaleUpFactor: '2'
-    scaleDownFactor: '0.5'
-  # - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
-  #   repositoryNames:
-  #   - hello-world-javascript-action
-  #   - python-test-app
-
+  - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
+    repositoryNames:
+    - hello-world-javascript-action
