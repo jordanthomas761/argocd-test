@@ -59,8 +59,13 @@ spec:
   minReplicas: 2
   maxReplicas: 5
   metrics:
-  - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
-    repositoryNames:
-    - hello-world-javascript-action
-    - python-test-app
+  - type: PercentageRunnersBusy
+    scaleUpThreshold: '0.75'
+    scaleDownThreshold: '0.25'
+    scaleUpFactor: '2'
+    scaleDownFactor: '0.5'
+  # - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
+  #   repositoryNames:
+  #   - hello-world-javascript-action
+  #   - python-test-app
 
