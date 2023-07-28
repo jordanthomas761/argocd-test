@@ -37,13 +37,6 @@ spec:
       repository: jordanthomas761/hello-world-javascript-action
       dockerdWithinRunnerContainer: false
       ephemeral: true
-      dockerdContainerResources:
-        limits:
-          cpu: "2"
-          memory: "2Gi"
-        requests:
-          cpu: "250m"
-          memory: "256Mi"
 ---
 apiVersion: actions.summerwind.dev/v1alpha1
 kind: HorizontalRunnerAutoscaler
@@ -57,7 +50,7 @@ metadata:
 spec:
   scaleTargetRef:
     kind: RunnerDeployment
-    name: Hello-world-runner-deployment
+    name: hello-world-runner-deployment
   minReplicas: 2
   maxReplicas: 5
   metrics:
