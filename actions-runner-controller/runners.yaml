@@ -13,6 +13,7 @@ spec:
     spec:
       repository: jordanthomas761/python-test-app     
       dockerdWithinRunnerContainer: false
+      ephemeral: true
       dockerdContainerResources:
         limits:
           cpu: "2"
@@ -36,6 +37,7 @@ spec:
     spec:
       repository: jordanthomas761/hello-world-javascript-action
       dockerdWithinRunnerContainer: false
+      ephemeral: true
       dockerdContainerResources:
         limits:
           cpu: "2"
