@@ -55,7 +55,8 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   scaleTargetRef:
-    name: runner-deployment
+    kind: RunnerDeployment
+    name: Hello-world-runner-deployment
   minReplicas: 2
   maxReplicas: 5
   metrics:
