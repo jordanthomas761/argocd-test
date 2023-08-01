@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: actions-runner-controller-2
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/actions-runner-controller/actions-runner-controller
+    path: charts/actions-runner-controller
+    targetRevision: v0.25.2
+    helm:
+      parameters:
+        - name: syncPeriod
+          value: 1m
+        - name: runner.statusUpdateHook.enabled
+          value: "true"
+        - name: "actionsMetricsServer.enabled"
+          value: "true"
+        - name: "actionsMetrics.proxy.enabled"
+          value: "false"
+  destination:
+      name: in-cluster
+      namespace: actions-runner-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Replace=true
