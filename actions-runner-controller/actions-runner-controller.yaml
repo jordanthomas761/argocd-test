@@ -20,7 +20,9 @@ spec:
         - name: "actionsMetricsServer.enabled"
           value: "true"
         - name: "actionsMetrics.proxy.enabled"
-          value: "false"
+          value: "true"
+        - name: "actionsMetrics.serviceMonitor.enable"
+          value: "true"
   destination:
       name: in-cluster
       namespace: actions-runner-system
