@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://prometheus-community.github.io/helm-charts
-    path: prometheus-community/prometheus
+    chart: prometheus-community/prometheus
     targetRevision: v2.46.0
   destination:
       name: in-cluster
