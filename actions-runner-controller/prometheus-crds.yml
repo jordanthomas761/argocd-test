@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://prometheus-community.github.io/helm-charts
     chart: prometheus-community/prometheus-operator-crds
-    targetRevision: 0.66.0
+    targetRevision: 5.0.0
   destination:
       name: in-cluster
       namespace: prometheus

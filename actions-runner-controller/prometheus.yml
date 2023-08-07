@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://prometheus-community.github.io/helm-charts
     chart: prometheus-community/prometheus
-    targetRevision: v2.46.0
+    targetRevision: 23.2.0
   destination:
       name: in-cluster
       namespace: prometheus
