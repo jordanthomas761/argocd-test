@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/actions-runner-controller/actions-runner-controller
     path: charts/actions-runner-controller
-    targetRevision: v0.27.4
+    targetRevision: v0.25.2
     helm:
       parameters:
         - name: syncPeriod
