@@ -10,7 +10,8 @@ metadata:
 spec:
   template:
     spec:
-      labels: nas
+      labels: 
+        - nas
       repository: jordanthomas761/python-test-app     
       dockerdWithinRunnerContainer: false
       ephemeral: true
@@ -34,7 +35,8 @@ metadata:
 spec:
   template:
     spec:
-      labels: nas
+      labels: 
+        - nas
       repository: jordanthomas761/hello-world-javascript-action
       dockerdWithinRunnerContainer: false
       ephemeral: true
