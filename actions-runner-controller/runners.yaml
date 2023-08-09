@@ -5,14 +5,14 @@ metadata:
   namespace: actions-runner-workers
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  # finalizers:
-  #   - resources-finalizer.argocd.argoproj.io
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
+  replicas: 1
   template:
     spec:
       repository: jordanthomas761/python-test-app     
       dockerdWithinRunnerContainer: false
-      ephemeral: true
       dockerdContainerResources:
         limits:
           cpu: "2"
@@ -28,51 +28,39 @@ metadata:
   namespace: actions-runner-workers
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  # finalizers:
-  #   - resources-finalizer.argocd.argoproj.io
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
+  replicas: 1
   template:
     spec:
       repository: jordanthomas761/hello-world-javascript-action
       dockerdWithinRunnerContainer: false
-      ephemeral: true
+      dockerdContainerResources:
+        limits:
+          cpu: "2"
+          memory: "2Gi"
+        requests:
+          cpu: "250m"
+          memory: "256Mi"
 ---
 apiVersion: actions.summerwind.dev/v1alpha1
 kind: HorizontalRunnerAutoscaler
 metadata:
-  name: python-runner-autoscaler
+  name: runner-deployment-autoscaler
   namespace: actions-runner-workers
   annotations:
     argocd.argoproj.io/sync-wave: "1"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
-  scaleDownDelaySecondsAfterScaleOut: 300
   scaleTargetRef:
-    kind: RunnerDeployment
-    name: python-runner-deployment
-  minReplicas: 1
-  maxReplicas: 5
-  metrics:
-  - type: PercentageRunnersBusy
-    scaleUpThreshold: '0.75'
-    scaleDownThreshold: '0.25'
-    scaleUpFactor: '2'
-    scaleDownFactor: '0.5'
----
-apiVersion: actions.summerwind.dev/v1alpha1
-kind: HorizontalRunnerAutoscaler
-metadata:
-  name: hello-world-autoscaler
-  namespace: actions-runner-workers
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
-spec:
-  scaleDownDelaySecondsAfterScaleOut: 60
-  scaleTargetRef:
-    kind: RunnerDeployment
-    name: hello-world-runner-deployment
-  minReplicas: 1
+    name: runner-deployment
+  minReplicas: 2
   maxReplicas: 5
   metrics:
   - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
     repositoryNames:
     - hello-world-javascript-action
+    - python-test-app
+
