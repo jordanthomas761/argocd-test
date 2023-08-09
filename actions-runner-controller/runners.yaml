@@ -8,9 +8,9 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  replicas: 1
   template:
     spec:
+      labels: nas
       repository: jordanthomas761/python-test-app     
       dockerdWithinRunnerContainer: false
       dockerdContainerResources:
@@ -34,6 +34,7 @@ spec:
   replicas: 1
   template:
     spec:
+      labels: nas
       repository: jordanthomas761/hello-world-javascript-action
       dockerdWithinRunnerContainer: false
       dockerdContainerResources:
