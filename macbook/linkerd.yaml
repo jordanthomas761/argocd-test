@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/jordanthomas761/argocd-test
     path: linkerd/
-    targetRevision: minikube
+    targetRevision: HEAD
   destination:
       name: in-cluster
       namespace: argocd
