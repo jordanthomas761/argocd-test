@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/jordanthomas761/argocd-test
-    path: actions-runner-controller/linkerd/
+    path: linkerd
     targetRevision: minikube
   destination:
       name: in-cluster
