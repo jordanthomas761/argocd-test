@@ -8,9 +8,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/actions-runner-controller/actions-runner-controller
-    path: charts/actions-runner-controller
-    targetRevision: v0.27.4
+    repoURL: https://actions-runner-controller.github.io/actions-runner-controller
+    chart: actions-runner-controller
+    targetRevision: 0.23.3
     helm:
       parameters:
         - name: syncPeriod
