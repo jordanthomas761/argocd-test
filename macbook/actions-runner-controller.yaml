@@ -20,7 +20,7 @@ spec:
         - name: "actionsMetricsServer.enabled"
           value: "true"
         - name: "actionsMetrics.proxy.enabled"
-          value: "true"
+          value: "false"
         - name: "actionsMetrics.serviceMonitor.enable"
           value: "true"
   destination:
