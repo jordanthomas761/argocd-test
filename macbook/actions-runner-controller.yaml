@@ -19,9 +19,9 @@ spec:
           value: "true"
         - name: "actionsMetricsServer.enabled"
           value: "true"
-        - name: "actionsMetrics.proxy.enabled"
+        - name: "metrics.proxy.enabled"
           value: "false"
-        - name: "actionsMetrics.serviceMonitor.enable"
+        - name: "metrics.serviceMonitor.enable"
           value: "true"
   destination:
       name: in-cluster
