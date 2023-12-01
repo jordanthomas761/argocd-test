@@ -7,7 +7,6 @@ spec:
   - port: 8000
     targetPort: 8000
     protocol: TCP
-    name: login-app
 ---
 kind: EndpointSliceEndpointSlice
 apiVersion: discovery.k8s.io/v1
@@ -15,10 +14,9 @@ metadata:
   name: login-app
   labels:
     kubernetes.io/service-name: jordan-mbp
-subsets:
+endpoints:
   - addresses:
-        - ip: 10.0.1.114
-    ports:
-      - port: 8000
-        protocol: TCP
-        name: login-app
+    - "10.0.1.114"
+ports:
+  - port: 8000
+    protocol: TCP
