@@ -11,7 +11,7 @@ spec:
     path: website
   destination:
     name: in-cluster
-    namespace: personal-site
+    namespace: website
   syncPolicy:
     automated:
       prune: true
