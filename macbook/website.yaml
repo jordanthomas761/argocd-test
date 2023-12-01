@@ -11,10 +11,8 @@ spec:
     path: website
   destination:
     name: in-cluster
-    namespace: website
+    namespace: personal-site
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    syncOptions: 
-    - CreateNamespace=true
