@@ -10,7 +10,7 @@ spec:
     targetRevision: HEAD
     path: website
   destination:
-    server: https://kubernetes.default.svc
+    name: in-cluster
     namespace: personal-site
   syncPolicy:
     automated:
