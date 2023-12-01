@@ -14,6 +14,7 @@ metadata:
   name: login-app
   labels:
     kubernetes.io/service-name: jordan-mbp
+addressType: IPv4
 endpoints:
   - addresses:
     - "10.0.1.114"
