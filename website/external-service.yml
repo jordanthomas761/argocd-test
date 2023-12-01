@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: jordan-mbp
+spec:
+  clusterIP: None
+  ports:
+  - port: 8000
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: login-app
+subsets:
+  - addresses:
+        - ip: 10.0.1.144
+    ports:
+      - port: 8000
+        name: backend-mobile-db-service
