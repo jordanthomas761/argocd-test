@@ -3,10 +3,12 @@ apiVersion: v1
 metadata:
   name: jordan-mbp
 spec:
+  type: ClusterIP
   ports:
   - port: 8000
     targetPort: 8000
     protocol: TCP
+    name: jordan-mbp
 ---
 kind: Endpoints
 apiVersion: v1
@@ -17,4 +19,4 @@ subsets:
         - ip: 10.0.1.144
     ports:
       - port: 8000
-        name: backend-mobile-db-service
+        name: jordan-mbp
