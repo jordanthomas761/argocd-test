@@ -18,6 +18,7 @@ addressType: IPv4
 endpoints:
   - addresses:
     - "10.0.1.114"
+    conditions: {}
 ports:
   - port: 8000
     protocol: TCP
