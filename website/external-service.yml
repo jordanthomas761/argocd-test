@@ -5,6 +5,8 @@ metadata:
 spec:
   ports:
   - port: 8000
+    targetPort: 8000
+    protocol: TCP
 ---
 kind: Endpoints
 apiVersion: v1
