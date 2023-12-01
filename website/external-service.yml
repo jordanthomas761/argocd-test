@@ -16,7 +16,7 @@ metadata:
   name: login-app
 subsets:
   - addresses:
-        - ip: 10.0.1.144
+        - ip: 10.0.1.114
     ports:
       - port: 8000
         name: login-app
