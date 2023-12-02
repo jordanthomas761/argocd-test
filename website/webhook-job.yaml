@@ -16,6 +16,6 @@ spec:
           - "POST"
           - "--data-urlencode"
           - "payload={\"text\": \"ArgoCD has synced the website repo\"}"
-          - "jordan-mbp"
+          - "jordan-mbp/webhook"
       restartPolicy: Never
   backoffLimit: 2
