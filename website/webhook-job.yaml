@@ -14,8 +14,9 @@ spec:
           - "curl"
           - "-X"
           - "POST"
-          - "-H"
+          - "--header"
           - "Content-type: application/json"
+          - "--data"
           - "{\"text\": \"ArgoCD has synced the website repo\"}"
           - "jordan-mbp/webhook"
       restartPolicy: Never
