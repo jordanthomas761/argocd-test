@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: notify-job
+  generateName: start-sync-job
   annotations:
     argocd.argoproj.io/hook: PreSync
 spec:
@@ -17,7 +17,57 @@ spec:
           - "--header"
           - "Content-type: application/json"
           - "--data"
-          - "{\"text\": \"ArgoCD has synced the website repo\"}"
+          - "{\"text\": \"ArgoCD Sync started\"}"
+          - "jordan-mbp/webhook"
+      restartPolicy: Never
+  backoffLimit: 2
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: end-sync-job
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+      - name: mbp-notification
+        image: curlimages/curl
+        command:
+          - "curl"
+          - "-X"
+          - "POST"
+          - "--header"
+          - "Content-type: application/json"
+          - "--data"
+          - "{\"text\": \"ArgoCD Sync Finished\"}"
+          - "jordan-mbp/webhook"
+      restartPolicy: Never
+  backoffLimit: 2
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: failed-sync-job
+  annotations:
+    argocd.argoproj.io/hook: SyncFail
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+      - name: mbp-notification
+        image: curlimages/curl
+        command:
+          - "curl"
+          - "-X"
+          - "POST"
+          - "--header"
+          - "Content-type: application/json"
+          - "--data"
+          - "{\"text\": \"ArgoCD Sync Failed\"}"
           - "jordan-mbp/webhook"
       restartPolicy: Never
   backoffLimit: 2
