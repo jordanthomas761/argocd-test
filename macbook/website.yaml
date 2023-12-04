@@ -14,7 +14,7 @@ spec:
     namespace: personal-site
   helm:
       parameters:
-        name: "ref"
+        name: "notifications.ref"
         value: $ARGOCD_APP_REVISION
   syncPolicy:
     automated:
