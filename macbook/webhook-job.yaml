@@ -17,7 +17,7 @@ spec:
           - "--header"
           - "Content-type: application/json"
           - "--data"
-          - "{\"text\": \"ArgoCD Sync started\"}"
+          - "{\"text\": \"Application {{.app.metadata.name}} sync is {{.app.status.sync.status}}. started\"}"
           - "jordan-mbp/webhook"
       restartPolicy: Never
   backoffLimit: 2
@@ -42,7 +42,7 @@ spec:
           - "--header"
           - "Content-type: application/json"
           - "--data"
-          - "{\"text\": \"ArgoCD Sync Finished\"}"
+          - "{\"text\": \"Application {{.app.metadata.name}} sync is {{.app.status.sync.status}}. Finished\"}"
           - "jordan-mbp/webhook"
       restartPolicy: Never
   backoffLimit: 2
@@ -67,7 +67,7 @@ spec:
           - "--header"
           - "Content-type: application/json"
           - "--data"
-          - "{\"text\": \"ArgoCD Sync Failed\"}"
+          - "{\"text\": \"Application {{.app.metadata.name}} sync is {{.app.status.sync.status}}. Failed\"}"
           - "jordan-mbp/webhook"
       restartPolicy: Never
   backoffLimit: 2
