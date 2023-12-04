@@ -9,13 +9,13 @@ spec:
     repoURL: https://github.com/jordanthomas761/argocd-test
     targetRevision: HEAD
     path: website
-  destination:
-    name: in-cluster
-    namespace: personal-site
-  helm:
+    helm:
       parameters:
         name: "notifications.ref"
         value: $ARGOCD_APP_REVISION
+  destination:
+    name: in-cluster
+    namespace: personal-site
   syncPolicy:
     automated:
       prune: true
