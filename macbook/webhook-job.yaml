@@ -18,7 +18,7 @@ spec:
           - "Content-type: application/json"
           - "--data"
           - "{\"text\": \"Application {{.app.metadata.name}} sync is {{.app.status.sync.status}}. started\"}"
-          - "jordan-mbp/webhook"
+          - "jordan-mbp.personal-site.svc.cluster.local/webhook"
       restartPolicy: Never
   backoffLimit: 2
 ---
@@ -43,7 +43,7 @@ spec:
           - "Content-type: application/json"
           - "--data"
           - "{\"text\": \"Application {{.app.metadata.name}} sync is {{.app.status.sync.status}}. Finished\"}"
-          - "jordan-mbp/webhook"
+          - "jordan-mbp.personal-site.svc.cluster.local/webhook"
       restartPolicy: Never
   backoffLimit: 2
 ---
@@ -68,6 +68,6 @@ spec:
           - "Content-type: application/json"
           - "--data"
           - "{\"text\": \"Application {{.app.metadata.name}} sync is {{.app.status.sync.status}}. Failed\"}"
-          - "jordan-mbp/webhook"
+          - "jordan-mbp.personal-site.svc.cluster.local/webhook"
       restartPolicy: Never
   backoffLimit: 2
