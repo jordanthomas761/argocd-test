@@ -18,7 +18,7 @@ spec:
           - "--header"
           - "Content-type: application/json"
           - "--data"
-          - "{\"text\": \"Application {{ .Values.app }} sync is $ARGOCD_APP_REVISION \"}"
+          - "{\"text\": \"Application {{ .Values.app }} sync is $ARGOCD_APP_NAME \"}"
           - "jordan-mbp.personal-site.svc.cluster.local/webhook"
       restartPolicy: Never
   backoffLimit: 2

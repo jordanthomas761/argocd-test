@@ -12,6 +12,10 @@ spec:
   destination:
     name: in-cluster
     namespace: personal-site
+  helm:
+      parameters:
+        name: "ref"
+        value: $ARGOCD_APP_REVISION
   syncPolicy:
     automated:
       prune: true
