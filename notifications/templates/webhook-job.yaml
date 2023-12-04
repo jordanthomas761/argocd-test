@@ -18,7 +18,7 @@ spec:
           - "--header"
           - "Content-type: application/json"
           - "--data"
-          - "{\"text\": \"Application {{.app}} sync is {{`{{.app.status.sync.status}}`}}\"}"
+          - "{\"text\": \"Application {{ .Values.app }} sync is {{`{{.app.status.sync.status}}`}}\"}"
           - "jordan-mbp.personal-site.svc.cluster.local/webhook"
       restartPolicy: Never
   backoffLimit: 2
