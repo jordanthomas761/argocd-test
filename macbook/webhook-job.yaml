@@ -3,31 +3,7 @@ kind: Job
 metadata:
   generateName: start-sync-job
   annotations:
-    argocd.argoproj.io/hook: PreSync
-spec:
-  template:
-    spec:
-      containers:
-      - name: mbp-notification
-        image: curlimages/curl
-        command:
-          - "curl"
-          - "-X"
-          - "POST"
-          - "--header"
-          - "Content-type: application/json"
-          - "--data"
-          - "{\"text\": \"Application {{.app.metadata.name}} sync is {{.app.status.sync.status}}. started\"}"
-          - "jordan-mbp.personal-site.svc.cluster.local/webhook"
-      restartPolicy: Never
-  backoffLimit: 2
----
-apiVersion: batch/v1
-kind: Job
-metadata:
-  generateName: end-sync-job
-  annotations:
-    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook: PreSync, PostSync, SyncFail
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
@@ -42,32 +18,7 @@ spec:
           - "--header"
           - "Content-type: application/json"
           - "--data"
-          - "{\"text\": \"Application {{.app.metadata.name}} sync is {{.app.status.sync.status}}. Finished\"}"
-          - "jordan-mbp.personal-site.svc.cluster.local/webhook"
-      restartPolicy: Never
-  backoffLimit: 2
----
-apiVersion: batch/v1
-kind: Job
-metadata:
-  generateName: failed-sync-job
-  annotations:
-    argocd.argoproj.io/hook: SyncFail
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
-spec:
-  template:
-    spec:
-      containers:
-      - name: mbp-notification
-        image: curlimages/curl
-        command:
-          - "curl"
-          - "-X"
-          - "POST"
-          - "--header"
-          - "Content-type: application/json"
-          - "--data"
-          - "{\"text\": \"Application {{.app.metadata.name}} sync is {{.app.status.sync.status}}. Failed\"}"
+          - "{\"text\": \"Application {{`{{.app.metadata.name}}`}} sync is {{`{{.app.status.sync.status}}`}}\"}"
           - "jordan-mbp.personal-site.svc.cluster.local/webhook"
       restartPolicy: Never
   backoffLimit: 2
