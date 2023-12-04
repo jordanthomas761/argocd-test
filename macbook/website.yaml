@@ -11,8 +11,8 @@ spec:
     path: website
     helm:
       parameters:
-        name: "notifications.ref"
-        value: $ARGOCD_APP_REVISION
+        - name: "notifications.ref"
+          value: $ARGOCD_APP_REVISION
   destination:
     name: in-cluster
     namespace: personal-site
