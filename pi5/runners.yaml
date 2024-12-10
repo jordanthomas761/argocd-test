@@ -21,6 +21,8 @@ spec:
         value: controller-manager
       - name: controllerServiceAccount.name
         value: actions-runner-controller-gha-rs-controller
+      - name: controllerServiceAccount.namespace
+        value: actions-runner-system
 
   destination:
       name: in-cluster
