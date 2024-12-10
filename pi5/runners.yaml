@@ -13,6 +13,8 @@ spec:
     targetRevision: 0.9.3
     helm:
       parameters:
+      - name: runnerScaleSetName
+        value: python-runners
       - name: githubConfigUrl
         value: http://github.com/jordanthomas761/python-test-app
       - name: githubConfigSecret
