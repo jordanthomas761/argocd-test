@@ -17,7 +17,7 @@ spec:
         value: python-runners
       - name: githubConfigUrl
         value: https://github.com/jordanthomas761/python-test-app
-      - name: githubConfigSecret
+      - name: githubConfigSecret.token
         value: controller-manager
       - name: controllerServiceAccount.name
         value: actions-runner-controller-gha-rs-controller
