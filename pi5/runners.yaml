@@ -19,6 +19,8 @@ spec:
         value: http://github.com/jordanthomas761/python-test-app
       - name: githubConfigSecret
         value: controller-manager
+      - name: controllerServiceAccount.namespace
+        value: actions-runner-system
 
   destination:
       name: in-cluster
