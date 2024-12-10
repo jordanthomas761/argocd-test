@@ -17,6 +17,8 @@ spec:
           value: github.com
         - name: githubConfigSecret.github_token
           value: github_token
+        - name: serviceAccount.create
+          value: true
   destination:
       name: in-cluster
       namespace: actions-runner-system
