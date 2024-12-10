@@ -15,7 +15,7 @@ spec:
       parameters:
   destination:
       name: in-cluster
-      namespace: actions-runner-system
+      namespace: arc-system
   syncPolicy:
     automated:
       prune: true

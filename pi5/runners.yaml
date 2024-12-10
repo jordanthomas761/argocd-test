@@ -19,10 +19,10 @@ spec:
         value: https://github.com/jordanthomas761/python-test-app
       - name: githubConfigSecret
         value: controller-manager
-      - name: controllerServiceAccount.name
-        value: actions-runner-controller-gha-rs-controller
-      - name: controllerServiceAccount.namespace
-        value: actions-runner-system
+      # - name: controllerServiceAccount.name
+      #   value: actions-runner-controller-gha-rs-controller
+      # - name: controllerServiceAccount.namespace
+      #   value: actions-runner-system
 
   destination:
       name: in-cluster
