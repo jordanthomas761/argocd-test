@@ -22,7 +22,7 @@ spec:
       - name: controllerServiceAccount.namespace
         value: arc-system
       - name: containerMode.type
-        value: dind
+        value: kubernetes
 
   destination:
       name: in-cluster
