@@ -21,7 +21,7 @@ spec:
         value: controller-manager
       - name: controllerServiceAccount.namespace
         value: arc-system
-      - name: containerMode
+      - name: containerMode.type
         value: dind
 
   destination:
