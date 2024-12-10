@@ -15,7 +15,7 @@ spec:
       parameters:
   destination:
       name: in-cluster
-      namespace: arc-systems
+      namespace: arc-system
   syncPolicy:
     automated:
       prune: true
