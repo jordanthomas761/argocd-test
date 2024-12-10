@@ -16,7 +16,7 @@ spec:
       - name: runnerScaleSetName
         value: python-runners
       - name: githubConfigUrl
-        value: http://github.com/jordanthomas761/python-test-app
+        value: https://github.com/jordanthomas761/python-test-app
       - name: githubConfigSecret
         value: controller-manager
       - name: controllerServiceAccount.name
