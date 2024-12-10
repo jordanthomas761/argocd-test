@@ -19,7 +19,11 @@ spec:
         value: https://github.com/jordanthomas761/python-test-app
       - name: githubConfigSecret
         value: controller-manager
-      - name: containerMode.type
+      - name: controllerServiceAccount.name
+        value: actions-runner-controller-gha-rs-controller
+      - name: controllerServiceAccount.namespace
+        value: arc-system
+      - name: Values.containerMode
         value: dind
 
   destination:
