@@ -17,6 +17,17 @@ spec:
         value: app.kubernetes.io/instance 
       - name: flags.logFormat
         value: json
+      - name: affinity
+        value: "
+          podAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                - key: security
+                  operator: In
+                  values:
+                  - S1
+              kubernetes.io/hostname=pi5-gpio"
   destination:
       name: in-cluster
       namespace: arc-system

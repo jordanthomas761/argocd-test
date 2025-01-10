@@ -25,6 +25,17 @@ spec:
         value: arc-system
       - name: Values.containerMode
         value: dind
+      - name: affinity
+        value: "
+          podAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                - key: security
+                  operator: In
+                  values:
+                  - S1
+              kubernetes.io/hostname=pi5-gpio"
 
   destination:
       name: in-cluster
