@@ -19,15 +19,14 @@ spec:
         value: json
       - name: affinity
         value: "
-          podAffinity:
+          nodeAffinity:
             requiredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:
                 matchExpressions:
-                - key: security
+                - key: kubernetes.io/hostname
                   operator: In
                   values:
-                  - S1
-              kubernetes.io/hostname=pi5-gpio"
+                  - pi5-ml"
   destination:
       name: in-cluster
       namespace: arc-system
