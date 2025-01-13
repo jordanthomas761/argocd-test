@@ -31,12 +31,12 @@ spec:
             affinity:
               nodeAffinity:
                 preferredDuringSchedulingIgnoredDuringExecution:
-                - labelSelector:
-                    matchExpressions:
-                    - key: kubernetes.io/hostname
-                      operator: NotIn
-                      values:
-                      - pi5-ml
+                  nodeSelectorTerms:
+                    - matchExpressions:
+                      - key: kubernetes.io/hostname
+                        operator: NotIn
+                        values:
+                        - pi5-ml
         listenerTemplate:
           spec:
             affinity:
