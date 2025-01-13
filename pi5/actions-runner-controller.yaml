@@ -18,31 +18,15 @@ spec:
       - name: flags.logFormat
         value: json
       valuesObject:
-        template:
-          spec:
-            affinity:
-              nodeAffinity:
-                preferredDuringSchedulingIgnoredDuringExecution:
-                  - weight: 1
-                    preference:
-                      matchExpressions:
-                      - key: kubernetes.io/hostname
-                        operator: NotIn
-                        values:
-                        - pi5-ml
-        listenerTemplate:
-          spec:
-            containers: # <------------- Without these two lines Helm will refuse applying your values
-              - name: listener
-            affinity:
-              nodeAffinity:
-                requiredDuringSchedulingIgnoredDuringExecution:
-                  nodeSelectorTerms:
-                    - matchExpressions:
-                      - key: kubernetes.io/hostname
-                        operator: In
-                        values:
-                        - pi5-ml
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+                - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                    - pi5-ml
   destination:
       name: in-cluster
       namespace: arc-system
