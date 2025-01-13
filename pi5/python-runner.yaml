@@ -28,29 +28,19 @@ spec:
       valuesObject:
         template:
           spec:
-            tolerations: 
-              - key: "purpose"
-                operator: "Equal"
-                value: "runners" # <----------- Use scalable pool here to scale down/up aggressively without affecting controller or listener
-                effect: "NoSchedule"
-            # affinity:
-            #   nodeAffinity:
-            #     preferredDuringSchedulingIgnoredDuringExecution:
-            #       nodeSelectorTerms:
-            #         - matchExpressions:
-            #           - key: kubernetes.io/hostname
-            #             operator: NotIn
-            #             values:
-            #             - pi5-ml
+            affinity:
+              nodeAffinity:
+                preferredDuringSchedulingIgnoredDuringExecution:
+                  nodeSelectorTerms:
+                    - matchExpressions:
+                      - key: kubernetes.io/hostname
+                        operator: NotIn
+                        values:
+                        - pi5-ml
         listenerTemplate:
           spec:
             containers: # <------------- Without these two lines Helm will refuse applying your values
               - name: listener
-            # tolerations:
-            #   - key: "CriticalAddonsOnly" # <------------ Use non-scalable node pool here (we use `system` pool in AKS for that)
-            #     operator: "Equal"
-            #     value: "true"
-            #     effect: "NoSchedule"
             affinity:
               nodeAffinity:
                 preferredDuringSchedulingIgnoredDuringExecution:
