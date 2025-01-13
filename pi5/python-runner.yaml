@@ -27,15 +27,14 @@ spec:
         value: dind
       - name: affinity
         value: "
-          podAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
+          nodeAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:
                 matchExpressions:
-                - key: security
+                - key: kubernetes.io/hostname
                   operator: In
                   values:
-                  - S1
-              kubernetes.io/hostname=pi5-gpio"
+                  - pi5-gpio"
 
   destination:
       name: in-cluster
