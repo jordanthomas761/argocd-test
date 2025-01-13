@@ -25,6 +25,16 @@ spec:
         value: arc-system
       - name: Values.containerMode
         value: dind
+      valuesObject:
+        affinity:
+          nodeAffinity:
+            preferredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+                - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                    - pi5-ml
 
   destination:
       name: in-cluster
