@@ -19,7 +19,7 @@ spec:
         value: json
       valuesObject:
         affinity:
-          nodeAffinity:
+          podAffinity:
             requiredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:
                 matchExpressions:
