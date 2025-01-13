@@ -19,9 +19,9 @@ spec:
         value: json
       valuesObject:
         affinity:
-          podAffinity:
+          nodeAffinity:
             requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
+              nodeSelectorTerms:
                 matchExpressions:
                 - key: kubernetes.io/hostname
                   operator: In
