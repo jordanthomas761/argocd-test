@@ -23,7 +23,7 @@ spec:
         value: actions-runner-controller-gha-rs-controller
       - name: controllerServiceAccount.namespace
         value: arc-system
-      - name: containerMode
+      - name: containerMode.type
         value: dind
       valuesObject:
         template:
