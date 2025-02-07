@@ -53,7 +53,7 @@ spec:
                         - pi5-ml
   destination:
       name: in-cluster
-      namespace: actions-runner-workers
+      namespace: arc-runners
   syncPolicy:
     automated:
       prune: true
