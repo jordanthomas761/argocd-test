@@ -10,19 +10,19 @@ spec:
     targetPort: 8000
     protocol: TCP
 ---
-kind: EndpointSlice
-apiVersion: discovery.k8s.io/v1
-metadata:
-  annotations:
-    argocd.argoproj.io/hook: PreSync
-  name: login-app
-  labels:
-    kubernetes.io/service-name: jordan-mbp
-addressType: IPv4
-endpoints:
-  - addresses:
-    - "10.0.1.114"
-    conditions: {}
-ports:
-  - port: 8000
-    protocol: TCP
+# kind: EndpointSlice
+# apiVersion: discovery.k8s.io/v1
+# metadata:
+#   annotations:
+#     argocd.argoproj.io/hook: PreSync
+#   name: login-app
+#   labels:
+#     kubernetes.io/service-name: jordan-mbp
+# addressType: IPv4
+# endpoints:
+#   - addresses:
+#     - "10.0.1.114"
+#     conditions: {}
+# ports:
+#   - port: 8000
+#     protocol: TCP
