@@ -22,7 +22,7 @@ spec:
       - name: controllerServiceAccount.name
         value: actions-runner-controller-gha-rs-controller
       - name: runnerGroup
-        value: "Raspberry Pi"
+        value: Test Enterprise Runners (us-east-1)
       - name: controllerServiceAccount.namespace
         value: arc-system
       - name: containerMode.type
