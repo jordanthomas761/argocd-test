@@ -8,29 +8,22 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://actions-runner-controller.github.io/actions-runner-controller
-    chart: actions-runner-controller
-    targetRevision: 0.23.3
+    repoURL: ghcr.io/actions/actions-runner-controller-charts
+    chart: gha-runner-scale-set-controller
+    targetRevision: 0.9.3
     helm:
       parameters:
-        - name: syncPeriod
-          value: 1m
-        - name: runner.statusUpdateHook.enabled
-          value: "true"
-        - name: "actionsMetricsServer.enabled"
-          value: "true"
-        - name: "actionsMetricsServer.logFormat"
-          value: "json"
-        - name: "metrics.proxy.enabled"
-          value: "false"
-        - name: "metrics.serviceMonitor.enable"
-          value: "true"
+      - name: flags.excludeLabelPropagationPrefixes[0]
+        value: app.kubernetes.io/instance 
+      - name: flags.logFormat
+        value: json
   destination:
       name: in-cluster
-      namespace: actions-runner-system
+      namespace: arc-system
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
     - Replace=true
+    - CreateNamespace=true
