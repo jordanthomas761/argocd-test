@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-website
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/jordanthomas761/argocd-test
+    targetRevision: HEAD
+    path: website
+    helm:
+      parameters:
+        - name: "notifications.ref"
+          value: $ARGOCD_APP_REVISION
+  destination:
+    name: in-cluster
+    namespace: personal-site
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions: 
+    - CreateNamespace=true
