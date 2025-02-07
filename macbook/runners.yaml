@@ -22,7 +22,7 @@ spec:
       - name: controllerServiceAccount.name
         value: actions-runner-controller-gha-rs-controller
       - name: runnerGroup
-        value: Test Enterprise Runners (us-east-1)
+        value: Test Enterprise Runners (us-west-2)
       - name: controllerServiceAccount.namespace
         value: arc-system
       - name: containerMode.type
