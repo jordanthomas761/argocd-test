@@ -1,0 +1,64 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: javascript-runners
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: ghcr.io/actions/actions-runner-controller-charts
+    chart: gha-runner-scale-set
+    targetRevision: 0.9.3
+    helm:
+      parameters:
+      - name: runnerScaleSetName
+        value: biwbass
+      - name: githubConfigUrl
+        value: https://github.com/biwbass
+      - name: githubConfigSecret
+        value: controller-manager
+      - name: controllerServiceAccount.name
+        value: actions-runner-controller-gha-rs-controller
+      - name: runnerGroup
+        value: "Raspberry Pi"
+      - name: controllerServiceAccount.namespace
+        value: arc-system
+      - name: containerMode.type
+        value: dind
+      valuesObject:
+        template:
+          spec:
+            affinity:
+              nodeAffinity:
+                preferredDuringSchedulingIgnoredDuringExecution:
+                  - weight: 1
+                    preference:
+                      matchExpressions:
+                      - key: kubernetes.io/hostname
+                        operator: NotIn
+                        values:
+                        - pi5-ml
+        listenerTemplate:
+          spec:
+            containers: # <------------- Without these two lines Helm will refuse applying your values
+              - name: listener
+            affinity:
+              nodeAffinity:
+                requiredDuringSchedulingIgnoredDuringExecution:
+                  nodeSelectorTerms:
+                    - matchExpressions:
+                      - key: kubernetes.io/hostname
+                        operator: In
+                        values:
+                        - pi5-ml
+  destination:
+      name: in-cluster
+      namespace: arc-runners
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
